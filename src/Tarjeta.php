@@ -5,7 +5,8 @@ namespace TpFinal;
 class Tarjeta {
     
     protected saldo = 0;
-
+    protected diaBici = 0;
+    
     public function saldo() {
         return $this->saldo;
     }
@@ -23,15 +24,38 @@ class Tarjeta {
             }
         }
     }
-
-
+    
+    public function sacarBici(Transporte $transporte) {
+        if($this->diaBici != $transporte->dia) {
+            $this->diaBici = 0;
+        }
+        if($this->diaBici = 0) {
+            if($this->saldo < 12.75) {
+                echo "No se puede retirar la bicicleta.";
+            }
+            else {
+                $this->saldo = $this->saldo - 12.75;
+                $this->diaBici = $transporte->dia;
+                echo "Se ha retirado la bicicleta.";
+            }
+        }
+        else {
+            echo "Se ha retirado la bicicleta.";
+        }
+    }
 }
 
 class Transporte {
-    protected $tipoVehiculo;
+    
+    protected $lineaVehiculo
     protected $patente;
-    public function __construct($a, $b) {
-        $this->tipoVehiculo = $a;
+    protected $hora;
+    protected $dia;
+    
+    public function __construct($a, $b, $c, $d) {
+        $this->lineaVehiculo = $a;
         $this->patente = $b;
+        $this->hora = $c;
+        $this->dia = $d;
     }
 }
