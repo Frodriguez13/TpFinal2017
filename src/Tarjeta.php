@@ -46,6 +46,7 @@ class Tarjeta {
     }
 }
 
+
 class Transporte {
     
     protected $lineaVehiculo;
@@ -58,6 +59,22 @@ class Transporte {
         $this->patente = $b;
         $this->hora = $c;
         $this->dia = $d;
+    }
+    
+    public function viaje(Transporte $transporte) {
+        $Time=time();
+        if(is_a($transporte, 'colectivo') {
+            if($this->ultimoColectivo == $transporte || $this->ultimoColectivo==0){
+                $this->saldo=$this->saldo - 9.75;
+                array_unshift($this->viajesRealizados), new viaje("normal",9.75, $transporte));
+            }
+            else
+            {
+                $this->saldo=$this->saldo - 3.20;
+                array_unshift($this->viajesRealizados), new viaje("trasbordo",3.20, $transporte));
+                $this->ultimoColectivo= $transporte;
+            }
+        }
     }
 }
 
