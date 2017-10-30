@@ -6,6 +6,7 @@ class Tarjeta {
     
     protected saldo = 0;
     protected diaBici = 0;
+    protected id;
     
     public function saldo() {
         return $this->saldo;
@@ -47,7 +48,7 @@ class Tarjeta {
 
 class Transporte {
     
-    protected $lineaVehiculo
+    protected $lineaVehiculo;
     protected $patente;
     protected $hora;
     protected $dia;
@@ -58,4 +59,13 @@ class Transporte {
         $this->hora = $c;
         $this->dia = $d;
     }
+}
+
+class Boleto {
+    
+    protected $dia;
+    protected $tipoBoleto;
+    protected $saldo;
+    protected $id;
+    protected $lineaVehiculo;
 }
