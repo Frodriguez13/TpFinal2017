@@ -8,8 +8,9 @@ class Transporte {
     protected $patente;
     protected $dia;
     
-    public function __construct($a, $b) {
+    public function __construct($a, $b, $c) {
         $this->lineaVehiculo = $a;
         $this->patente = $b;
+        $this->dia = $c;
     }
 }
