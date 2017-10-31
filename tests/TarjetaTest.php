@@ -22,12 +22,14 @@ class EstacionTest extends TestCase {
     
     public function testBici() {
         $bici = new Transporte("bicicleta", "123456", "4 de mayo");
+        $tarjeta = new Tarjeta;
+        $tarjeta->cargarSaldo(50);
         
-        $tarjeta1->abonarViaje($bici);
-        $this->assertEquals($tarjeta1->saldo(), 375.25);
+        $tarjeta->abonarViaje($bici);
+        $this->assertEquals($tarjeta1->saldo(), 38.25);
         //cobra primer viaje en bici
-        $tarjeta1->abonarViaje($bici);
-        $this->assertEquals($tarjeta1->saldo(), 375.25);
+        $tarjeta->abonarViaje($bici);
+        $this->assertEquals($tarjeta1->saldo(), 38.25);
         //no cobra otro viaje el mismo dia
     }
 }
