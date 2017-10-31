@@ -1,5 +1,5 @@
 TP Final
 
-[![Coverage Status](https://coveralls.io/repos/github/dagostinoips/TpFinal2017/badge.svg?branch=master)](https://coveralls.io/github/dagostinoips/TpFinal2017?branch=master)
+[![Coverage Status](https://coveralls.io/repos/github/Frodriguez13/TpFinal2017/badge.png?branch=master&service=github)](https://coveralls.io/github/Frodriguez13/TpFinal2017?branch=master)
 
-[![Build Status](https://travis-ci.org/dagostinoips/TpFinal2017.svg?branch=master)](https://travis-ci.org/dagostinoips/TpFinal2017)
+[![Build Status](https://travis-ci.org/Frodriguez13/TpFinal2017.svg?branch=master)](https://travis-ci.org/Frodriguez13/TpFinal2017)
