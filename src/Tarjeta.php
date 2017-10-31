@@ -7,7 +7,7 @@ class Tarjeta {
     protected $saldo = 0;
     protected $diaBici = 0;
     protected $id;
-    protected $viajesRealizados = array[];
+    protected $viajesRealizados = array ();
     protected $ultimoColectivo = 0;
     protected $diaColectivo = 0;
     
