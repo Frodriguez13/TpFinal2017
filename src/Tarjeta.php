@@ -30,10 +30,6 @@ class Tarjeta {
         }
     }
     
-    public function sacarBici(Transporte $transporte) {
-
-    }
-    
     public function abonarViaje(Transporte $transporte) {
         if(is_a($transporte->lineaVehiculo, 'bicicleta') {
             if($arjeta->viajesRealizados == []) {
