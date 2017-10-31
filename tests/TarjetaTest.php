@@ -10,10 +10,10 @@ class EstacionTest extends TestCase {
      * Comprueba que el saldo de una tarjeta nueva sea cero.
      */
     public function testTransporte() {
-        $bici = new Transporte("bici", "123456", "12:30", "4 de mayo");
+        $bici = new Transporte("bicicleta", "123456", "4 de mayo");
     }
            
-    public function testSaldoCero() {
+    public function testSaldo() {
         $tarjeta = new Tarjeta;
         $tarjeta1 = new Tarjeta;
 
