@@ -7,6 +7,10 @@ class Tarjeta {
     protected saldo = 0;
     protected diaBici = 0;
     protected id;
+    protected viajesRealizados = array[];
+    protected ultimoColectivo=0;
+    protected diaColectivo=0;
+    
     
     public function saldo() {
         return $this->saldo;
@@ -27,21 +31,48 @@ class Tarjeta {
     }
     
     public function sacarBici(Transporte $transporte) {
-        if($this->diaBici != $transporte->dia) {
-            $this->diaBici = 0;
-        }
-        if($this->diaBici = 0) {
-            if($this->saldo < 12.75) {
-                echo "No se puede retirar la bicicleta.";
+
+    }
+    
+    public function abonarViaje(Transporte $transporte) {
+        if(is_a($transporte->lineaVehiculo, 'bicicleta') {
+            if($arjeta->viajesRealizados == []) {
+                if($this->diaBici != $transporte->dia) {
+                    $this->diaBici = 0;
+                }
+                if($this->diaBici = 0) {
+                    if($this->saldo < 12.75) {
+                        echo "No se puede retirar la bicicleta.";
+                    }
+                    else {
+                        $this->saldo = $this->saldo - 12.75;
+                        $this->diaBici = $transporte->dia;
+                        echo "Se ha retirado la bicicleta.";
+                    }
+                }
+                else {
+                    echo "Se ha retirado la bicicleta.";
+                }
             }
             else {
-                $this->saldo = $this->saldo - 12.75;
-                $this->diaBici = $transporte->dia;
-                echo "Se ha retirado la bicicleta.";
+                if($this->saldo != 0) {
+                    $this->diaColectivo = $transporte->dia;
+                    if($this->ultimoColectivo == $transporte || $this->ultimoColectivo == 0) {
+                        $this->saldo=$this->saldo - 9.75;
+                        array_unshift($this->viajesRealizados), new Boleto("normal", $this->saldo, $transporte->lineaVehiculo, $this->diaColectivo, $this->id);
+                    }
+                    else {
+                        if($this->diaColectivo == $transporte->dia) {
+                            $this->saldo=$this->saldo - 3.20;
+                            array_unshift($this->viajesRealizados), new Boleto("normal", $this->saldo, $transporte->lineaVehiculo, $this->diaColectivo, $this->id);                            $this->ultimoColectivo= $transporte;
+                        }
+                        else {
+                            $this->saldo=$this->saldo - 9.75;
+                            array_unshift($this->viajesRealizados), new Boleto("normal", $this->saldo, $transporte->lineaVehiculo, $this->diaColectivo, $this->id);
+                        }
+                    }
+                }
             }
-        }
-        else {
-            echo "Se ha retirado la bicicleta.";
         }
     }
 }
@@ -51,38 +82,27 @@ class Transporte {
     
     protected $lineaVehiculo;
     protected $patente;
-    protected $hora;
     protected $dia;
     
-    public function __construct($a, $b, $c, $d) {
+    public function __construct($a, $b) {
         $this->lineaVehiculo = $a;
         $this->patente = $b;
-        $this->hora = $c;
-        $this->dia = $d;
-    }
-    
-    public function viaje(Transporte $transporte) {
-        $Time=time();
-        if(is_a($transporte, 'colectivo') {
-            if($this->ultimoColectivo == $transporte || $this->ultimoColectivo==0){
-                $this->saldo=$this->saldo - 9.75;
-                array_unshift($this->viajesRealizados), new viaje("normal",9.75, $transporte));
-            }
-            else
-            {
-                $this->saldo=$this->saldo - 3.20;
-                array_unshift($this->viajesRealizados), new viaje("trasbordo",3.20, $transporte));
-                $this->ultimoColectivo= $transporte;
-            }
-        }
     }
 }
 
 class Boleto {
-    
+ 
     protected $dia;
     protected $tipoBoleto;
     protected $saldo;
     protected $id;
     protected $lineaVehiculo;
+    
+    public function __construct($a, $b, $c, $d, $e) {
+        $this->dia = $d;
+        $this->tipoBoleto = $a;
+        $this->saldo = $b;
+        $this->id = $e;
+        $this->lineaVehiculo = $c;
+    }
 }
