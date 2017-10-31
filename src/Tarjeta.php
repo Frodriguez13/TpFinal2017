@@ -16,16 +16,16 @@ class Tarjeta {
         return $this->saldo;
     }
 
-    public function cargarSaldo($s) {
-        if($s==332) {
+    public function cargarSaldo($carga) {
+        if($carga==332) {
             $this->saldo = $this->saldo + 388;
         }
         else {
-            if($s==624) {
+            if($carga==624) {
                 $this->saldo = $this->saldo + 776;
             }
             else {
-                $this->saldo = $this->saldo + $s;
+                $this->saldo = $this->saldo + $carga;
             }
         }
     }
