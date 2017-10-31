@@ -78,31 +78,5 @@ class Tarjeta {
 }
 
 
-class Transporte {
-    
-    protected $lineaVehiculo;
-    protected $patente;
-    protected $dia;
-    
-    public function __construct($a, $b) {
-        $this->lineaVehiculo = $a;
-        $this->patente = $b;
-    }
-}
 
-class Boleto {
- 
-    protected $dia;
-    protected $tipoBoleto;
-    protected $saldo;
-    protected $id;
-    protected $lineaVehiculo;
-    
-    public function __construct($a, $b, $c, $d, $e) {
-        $this->dia = $d;
-        $this->tipoBoleto = $a;
-        $this->saldo = $b;
-        $this->id = $e;
-        $this->lineaVehiculo = $c;
-    }
-}
+
