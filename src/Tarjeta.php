@@ -48,6 +48,7 @@ class Tarjeta {
             else {
                 echo "Se ha retirado la bicicleta.";  
             }
+        }
         else {
             if($this->saldo != 0) {
                 $this->diaColectivo = $transporte->dia;
