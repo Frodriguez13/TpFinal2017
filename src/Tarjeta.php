@@ -60,7 +60,7 @@ class Tarjeta {
                     else {
                         if($this->diaColectivo == $transporte->dia) {
                             $this->saldo=$this->saldo - 3.20;
-                            array_unshift($this->viajesRealizados), new Boleto("normal", $this->saldo, $transporte->lineaVehiculo, $this->diaColectivo, $this->id);                            $this->ultimoColectivo= $transporte;
+                            array_unshift($this->viajesRealizados), new Boleto("trasbordo", $this->saldo, $transporte->lineaVehiculo, $this->diaColectivo, $this->id);                            $this->ultimoColectivo= $transporte;
                         }
                         else {
                             $this->saldo=$this->saldo - 9.75;
