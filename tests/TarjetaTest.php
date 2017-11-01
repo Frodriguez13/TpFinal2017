@@ -7,8 +7,8 @@ use PHPUnit\Framework\TestCase;
 class EstacionTest extends TestCase {
 
     public function testSaldo() {
-        $tarjeta = new Tarjeta;
-        $tarjeta1 = new Tarjeta;
+        $tarjeta = new Tarjeta();
+        $tarjeta1 = new Tarjeta();
 
         $this->assertEquals($tarjeta->saldo(), 0);
         //saldo de la tarjeta = 0
@@ -22,7 +22,7 @@ class EstacionTest extends TestCase {
     
     public function testBici() {
         $bici = new Transporte("bicicleta", "123456", "4 de mayo");
-        $tarjeta = new Tarjeta;
+        $tarjeta = new Tarjeta();
         $tarjeta->cargarSaldo(50);
         
         $tarjeta->abonarViaje($bici);
