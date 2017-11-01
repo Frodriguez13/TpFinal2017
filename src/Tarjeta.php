@@ -31,7 +31,7 @@ class Tarjeta {
     }
     
     public function abonarViaje(Transporte $transporte) {
-        if(is_a($transporte->lineaVehiculo, 'bicicleta') {
+        if(is_a($transporte->lineaVehiculo, 'bicicleta')) {
             if($this->diaBici != $transporte->dia) {
                 $this->diaBici = 0;
             }
