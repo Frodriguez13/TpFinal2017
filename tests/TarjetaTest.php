@@ -6,18 +6,25 @@ use PHPUnit\Framework\TestCase;
 
 class EstacionTest extends TestCase {
 
-    public function testSaldo() {
+    public function testSaldo-50() {
         $tarjeta = new Tarjeta();
-        $tarjeta1 = new Tarjeta();
 
-        $this->assertEquals($tarjeta->saldo(), 0);
-        //saldo de la tarjeta = 0
         $tarjeta->cargarSaldo(50);
         $this->assertEquals($tarjeta->saldo(), 50);
-        //cargar $50
-        $tarjeta1->cargarSaldo(332);
-        $this->assertEquals($tarjeta1->saldo(), 388);
-        //cargar $332 y se acreditan $388    
+    }
+    
+    public function testSaldo-332() {
+        $tarjeta = new Tarjeta();
+        
+        $tarjeta->cargarSaldo(332);
+        $this->assertEquals($tarjeta->saldo(), 388);   
+    }
+    
+    public function testSaldo-624(){
+        $tarjeta = new Tarjeta();
+        
+        $tarjeta->cargarSaldo(624);
+        $this->assertEquals($tarjeta->saldo(), 776); 
     }
     
     public function testBici() {
