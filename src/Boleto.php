@@ -17,14 +17,14 @@ class Boleto {
     }
  
     public function obtenerBoleto(){
-          return $this->tipo;
+          return $this->tipoBoleto;
        }
        public function obtenerSaldo(){
-          return $this->monto;
+          return $this->saldo;
        }
        public function obtenerLinea(){
-          return $this->transporte;
+          return $this->lineaVehiculo;
        }
        public function obtenerFecha() {
-           return $this->fecha_y_hora;
+           return $this->dia;
        }
