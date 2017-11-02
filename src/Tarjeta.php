@@ -4,7 +4,7 @@ namespace TpFinal;
 
 include 'Boleto.php';
 
-class colectivo {
+class Colectivo {
     protected $linea;
     
     public function obtenerLinea() {
@@ -16,7 +16,7 @@ class colectivo {
     }
 }
 
-class bici {
+class Bici {
     protected $patente;
     
     public function obtenerPatente() {
