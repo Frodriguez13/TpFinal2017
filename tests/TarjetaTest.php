@@ -33,10 +33,10 @@ class EstacionTest extends TestCase {
         $tarjeta->cargarSaldo(50);
         
         $tarjeta->abonarViaje($bici,'10/07/2017 15:30');
-        $this->assertEquals($tarjeta->saldo(), 38.25);
+        $this->assertEquals($tarjeta->saldo(), 35.375);
         //cobra primer viaje en bici
         $tarjeta->abonarViaje($bici,'10/07/2017 15:45');
-        $this->assertEquals($tarjeta->saldo(), 38.25);
+        $this->assertEquals($tarjeta->saldo(), 35.375);
         //no cobra otro viaje el mismo dia
     }
 }
