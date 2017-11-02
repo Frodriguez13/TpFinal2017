@@ -14,6 +14,18 @@ class colectivo {
     }
 }
 
+class bici {
+    protected $patente;
+    
+    public function obtenerPatente() {
+        return $this->patente;
+    }
+    
+    public function __construct ($patente) {
+        $this->patente = $patente;
+    }
+}
+
 class Tarjeta {
     
     protected $saldo = 0;
@@ -61,3 +73,21 @@ class Tarjeta {
             else {
                 print ("No tiene saldo suficiente");
             }
+        $this->diaColectivo = $fecha;
+        }
+        else {
+            if(($fecha-$this->dia)<86400) {
+                array_unshift($this->viajesRealizados, new Boleto("bicicleta", 0.0, $transporte,$primeraFecha));
+            }
+            else {
+                if($this->saldo >= 14.625){
+                    $this->saldo = $this->saldo - 14.625;
+                    $this->dia = $fecha;
+                    array_unshift($this->viajesRealizados, new Boleto("bicicleta", 14.625, $Transporte->obtenerPatente(),$primeraFecha));
+                }
+                else{
+                    print ("No tiene saldo suficiente");
+                }
+            }
+        }
+    }
