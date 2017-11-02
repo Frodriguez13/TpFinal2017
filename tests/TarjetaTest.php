@@ -5,7 +5,9 @@ namespace TpFinal;
 use PHPUnit\Framework\TestCase;
 
 class EstacionTest extends TestCase {
-
+   
+    $bondi = new Colectivo("156");
+    
     public function testSaldo_50() {
         $tarjeta = new Tarjeta();
 
@@ -41,7 +43,7 @@ class EstacionTest extends TestCase {
     }
     
     public function test_1_Viaje() {
-        $bondi = new Colectivo("156");
+        
         $tarjeta = new Tarjeta();
         $tarjeta->cargarSaldo(50);
         
