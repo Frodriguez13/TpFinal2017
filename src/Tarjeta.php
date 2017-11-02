@@ -2,6 +2,18 @@
 
 namespace TpFinal;
 
+class colectivo {
+    protected $linea;
+    
+    public function obtenerLinea() {
+        return $this->linea;
+    }
+    
+    public function __construct ($linea) {
+        $this->linea = $linea;
+    }
+}
+
 class Tarjeta {
     
     protected $saldo = 0;
