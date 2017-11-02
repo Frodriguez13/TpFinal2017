@@ -2,6 +2,8 @@
 
 namespace TpFinal;
 
+include 'Boleto.php';
+
 class colectivo {
     protected $linea;
     
