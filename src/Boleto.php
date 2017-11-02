@@ -28,3 +28,4 @@ class Boleto {
        public function obtenerFecha() {
            return $this->dia;
        }
+}
