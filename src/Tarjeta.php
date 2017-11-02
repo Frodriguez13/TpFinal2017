@@ -4,10 +4,8 @@ namespace TpFinal;
 
 include 'Boleto.php';
 
-class Colectivo {
+class colectivo {
     protected $linea;
-    protected $clase;
-    
     
     public function obtenerLinea() {
         return $this->linea;
@@ -61,7 +59,7 @@ class Tarjeta {
     public function abonarViaje($transporte, $fecha) {
         $this->primeraFecha = $fecha;
         $this->primeraFecha = strtotime($fecha);
-        if(get_class($transporte) == 'Colectivo') {
+        if(get_class($transporte) == 'colectivo') {
             if($this->saldo >= 9.75) {
                 if($this->ultimoBondi == $transporte || $this->ultimoBondi == 0) {
                         $this->diaColectivo = $this->primeraFecha;
