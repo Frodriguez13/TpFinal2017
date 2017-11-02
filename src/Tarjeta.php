@@ -62,12 +62,12 @@ class Tarjeta {
             if($this->saldo >= 9.75) {
                 if($this->ultimoBondi == $transporte || $this->ultimoBondi == 0) {
                         $this->saldo=$this->saldo - 9.75;
-                        array_unshift($this->viajesRealizados), new Boleto("normal", 9.75, $transporte->lineaVehiculo, $primeraFecha);)
+                        array_unshift($this->viajesRealizados), new Boleto("normal", 9.75, $transporte->obtenerLinea(), $primeraFecha));
                 }
                 else {
                     if($this->ultimoBondi->obtenerLinea() != $transporte->obtenerLinea() && ($fecha-$this->dia)<3600 ) {
                         $this->saldo = $this->saldo - 3.20;
-                        array_unshift($this->viajes_realizados, new Boleto("trasbordo", 3.20, $Transporte->obtenerLinea(),$primeraFecha));
+                        array_unshift($this->viajesRealizados), new Boleto("trasbordo", 3.20, $Transporte->ObtenerLinea(),$primeraFecha));
                         $this->ultimoBondi = $transporte;
                     }
                 }
