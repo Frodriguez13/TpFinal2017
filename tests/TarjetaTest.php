@@ -41,11 +41,11 @@ class EstacionTest extends TestCase {
     }
     
     public function test_1_Viaje() {
-        $colectivo = new Colectivo("156");
+        $bondi = new Colectivo("156");
         $tarjeta = new Tarjeta();
         $tarjeta->cargarSaldo(50);
         
-        $tarjeta->abonarViaje($colectivo,'10/07/2017 10:45');
+        $tarjeta->abonarViaje($bondi,'10/07/2017 10:45');
         $this->assertEquals($tarjeta->saldo(), 40.25);          
     }    
 }
