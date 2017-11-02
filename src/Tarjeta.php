@@ -6,9 +6,12 @@ include 'Boleto.php';
 
 class Colectivo {
     protected $linea;
+    protected $clase;
+    
     
     public function obtenerLinea() {
         return $this->linea;
+        $this->clase = get_class($this);
     }
     
     public function __construct ($linea) {
@@ -59,7 +62,7 @@ class Tarjeta {
     public function abonarViaje($transporte, $fecha) {
         $this->primeraFecha = $fecha;
         $this->primeraFecha = strtotime($fecha);
-        if(get_class($transporte) == 'Colectivo') {
+        if($transporte->clase == 'Colectivo') {
             if($this->saldo >= 9.75) {
                 if($this->ultimoBondi == $transporte || $this->ultimoBondi == 0) {
                         $this->diaColectivo = $this->primeraFecha;
