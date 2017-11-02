@@ -78,13 +78,13 @@ class Tarjeta {
         $this->diaColectivo = $fecha;
         }
         else {
-            if(($fecha-$this->dia)<86400) {
+            if(($fecha-$this->diaBici)<86400) {
                 array_unshift(($this->viajesRealizados), new Boleto("bicicleta", 0.0, $transporte,$primeraFecha));
             }
             else {
                 if($this->saldo >= 14.625){
                     $this->saldo = $this->saldo - 14.625;
-                    $this->dia = $fecha;
+                    $this->diaBici = $fecha;
                     array_unshift(($this->viajesRealizados), new Boleto("bicicleta", 14.625, $Transporte->obtenerPatente(),$primeraFecha));
                 }
                 else{
