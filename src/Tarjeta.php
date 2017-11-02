@@ -59,7 +59,7 @@ class Tarjeta {
     public function abonarViaje($transporte, $fecha) {
         $this->primeraFecha = $fecha;
         $this->primeraFecha = strtotime($fecha);
-        if(get_class($transporte) == 'Colectivo') {
+        if(get_class($transporte) == "Colectivo") {
             if($this->saldo >= 9.75) {
                 if($this->ultimoBondi == $transporte || $this->ultimoBondi == 0) {
                         $this->diaColectivo = $this->primeraFecha;
