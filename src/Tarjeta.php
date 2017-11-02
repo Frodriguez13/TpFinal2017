@@ -79,7 +79,7 @@ class Tarjeta {
             }
         }
         else {
-            if(($fecha-$this->diaBici)<86400) {
+            if(($this->primeraFecha-$this->diaBici)<86400) {
                 array_unshift(($this->viajesRealizados), new Boleto("bicicleta", 0.0, $transporte, $this->primeraFecha));
             }
             else {
