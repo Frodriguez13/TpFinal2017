@@ -67,7 +67,7 @@ class Tarjeta {
                 else {
                     if($this->ultimoBondi->obtenerLinea() != $transporte->obtenerLinea() && ($fecha-$this->dia)<3600 ) {
                         $this->saldo = $this->saldo - 3.20;
-                        array_unshift(($this->viajesRealizados), new Boleto("trasbordo", 3.20, $Transporte->ObtenerLinea(),$primeraFecha));
+                        array_unshift(($this->viajesRealizados), new Boleto("trasbordo", 3.20, $transporte->ObtenerLinea(),$primeraFecha));
                         $this->ultimoBondi = $transporte;
                     }
                 }
@@ -85,7 +85,7 @@ class Tarjeta {
                 if($this->saldo >= 14.625){
                     $this->saldo = $this->saldo - 14.625;
                     $this->diaBici = $fecha;
-                    array_unshift(($this->viajesRealizados), new Boleto("bicicleta", 14.625, $Transporte->obtenerPatente(),$primeraFecha));
+                    array_unshift(($this->viajesRealizados), new Boleto("bicicleta", 14.625, $transporte->obtenerPatente(),$primeraFecha));
                 }
                 else{
                     print ("No tiene saldo suficiente");
