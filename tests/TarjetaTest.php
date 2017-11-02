@@ -47,6 +47,5 @@ class EstacionTest extends TestCase {
         
         $tarjeta->abonarViaje(get_class($colectivo),'10/07/2017 10:45');
         $this->assertEquals($tarjeta->saldo(), 40.25);          
-    }
-    
+    } 
 }
