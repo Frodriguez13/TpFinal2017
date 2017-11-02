@@ -6,21 +6,21 @@ use PHPUnit\Framework\TestCase;
 
 class EstacionTest extends TestCase {
 
-    public function testSaldo-50() {
+    public function testSaldo_50() {
         $tarjeta = new Tarjeta();
 
         $tarjeta->cargarSaldo(50);
         $this->assertEquals($tarjeta->saldo(), 50);
     }
     
-    public function testSaldo-332() {
+    public function testSaldo_332() {
         $tarjeta = new Tarjeta();
         
         $tarjeta->cargarSaldo(332);
         $this->assertEquals($tarjeta->saldo(), 388);   
     }
     
-    public function testSaldo-624(){
+    public function testSaldo_624(){
         $tarjeta = new Tarjeta();
         
         $tarjeta->cargarSaldo(624);
