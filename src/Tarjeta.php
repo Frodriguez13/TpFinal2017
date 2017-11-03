@@ -19,12 +19,12 @@ class colectivo {
 class Bici {
     protected $patente;
     
-    public function obtenerPatente() {
-        return $this->patente;
-    }
-    
     public function __construct ($patente) {
         $this->patente = $patente;
+    }
+    
+    public function obtenerPatente() {
+        return $this->patente;
     }
 }
 
