@@ -28,8 +28,7 @@ class Bici {
     }
 }
 
-class Tarjeta {
-    
+class Tarjeta { 
     protected $saldo = 0;
     protected $diaBici = 0;
     protected $viajesRealizados = array ();
@@ -37,7 +36,6 @@ class Tarjeta {
     protected $diaColectivo = 0;
     protected $primeraFecha;
     protected $boleto;
-    
     
     public function saldo() {
         return $this->saldo;
