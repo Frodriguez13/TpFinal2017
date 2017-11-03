@@ -36,6 +36,7 @@ class Tarjeta {
     protected $ultimoBondi;
     protected $diaColectivo = 0;
     protected $primeraFecha;
+    protected $boleto;
     
     
     public function saldo() {
@@ -64,12 +65,12 @@ class Tarjeta {
                 if($this->ultimoBondi == $transporte || is_null($this->ultimoBondi)) {
                         $this->diaColectivo = $this->primeraFecha;
                         $this->saldo=$this->saldo - 9.75;
-                        array_unshift(($this->viajesRealizados), new Boleto("normal", 9.75, $transporte->obtenerLinea(), $this->primeraFecha));
+                        array_unshift(($this->viajesRealizados), $this->boleto = new Boleto("normal", 9.75, $transporte->obtenerLinea(), $this->primeraFecha));
                 }
                 else {
                     if($this->ultimoBondi->obtenerLinea() != $transporte->obtenerLinea() && ($fecha-$this->diaColectivo)<3600 ) {
                         $this->saldo = $this->saldo - 3.20;
-                        array_unshift(($this->viajesRealizados), new Boleto("trasbordo", 3.20, $transporte->obtenerLinea(), $this->primeraFecha));
+                        array_unshift(($this->viajesRealizados), $this->boleto = new Boleto("trasbordo", 3.20, $transporte->obtenerLinea(), $this->primeraFecha));
                         $this->ultimoBondi = $transporte;
                     }
                 }
@@ -80,13 +81,13 @@ class Tarjeta {
         }
         else {
             if(($this->primeraFecha-$this->diaBici)<86400) {
-                array_unshift(($this->viajesRealizados), new Boleto("bicicleta", 0.0, $transporte->obtenerPatente(), $this->primeraFecha));
+                array_unshift(($this->viajesRealizados), $this->boleto = new Boleto("bicicleta", 0.0, $transporte->obtenerPatente(), $this->primeraFecha));
             }
             else {
                 if($this->saldo >= 14.625){
                     $this->saldo = $this->saldo - 14.625;
                     $this->diaBici = $this->primeraFecha;
-                    array_unshift(($this->viajesRealizados), new Boleto("bicicleta", 14.625, $transporte->obtenerPatente(), $this->primeraFecha));
+                    array_unshift(($this->viajesRealizados), $this->boleto = new Boleto("bicicleta", 14.625, $transporte->obtenerPatente(), $this->primeraFecha));
                 }
                 else{
                     print ("No tiene saldo suficiente");
