@@ -80,13 +80,13 @@ class Tarjeta {
         }
         else {
             if(($this->primeraFecha-$this->diaBici)<86400) {
-                array_unshift(($this->viajesRealizados), new Boleto("bicicleta", 0.0, $transporte, $this->primeraFecha));
+                array_unshift(($this->viajesRealizados), new Boleto("bicicleta", 0.0, $transporte->obtenerPatente, $this->primeraFecha));
             }
             else {
                 if($this->saldo >= 14.625){
                     $this->saldo = $this->saldo - 14.625;
                     $this->diaBici = $this->primeraFecha;
-                    array_unshift(($this->viajesRealizados), new Boleto("bicicleta", 14.625, $transporte->obtenerPatente(),$this->primeraFecha));
+                    array_unshift(($this->viajesRealizados), new Boleto("bicicleta", 14.625, $transporte->obtenerPatente(), $this->primeraFecha));
                 }
                 else{
                     print ("No tiene saldo suficiente");
