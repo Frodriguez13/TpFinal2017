@@ -66,4 +66,27 @@ class EstacionTest extends TestCase {
         $tarjeta->abonarViaje($bondi,'10/07/2017 10:46');
         $this->assertEquals($tarjeta->saldo(), 30.50); 
     }
+    
+    public function testTrasbordo() {
+        $tarjeta = new Tarjeta();
+        $tarjeta->cargarSaldo(50);
+        $bondi = new colectivo(156);
+        $bondi2 = new colectivo(132);
+        
+        $tarjeta->abonarViaje($bondi,'10/07/2017 10:45');
+        $tarjeta->abonarViaje($bondi2,'10/07/2017 11:30');
+        $this->assertEquals($tarjeta->saldo(), 37.05);
+    }
+    
+    public function testBoleto() {
+        $tarjeta = new Tarjeta();
+        $tarjeta->cargarSaldo(50);
+        $bondi = new colectivo(156);    
+        
+        $tarjeta->abonarViaje($bondi,'10/07/2017 10:45');
+        $this->assertEquals($tarjeta->boleto->obtenerBoleto(),"normal");
+        $this->assertEquals($tarjeta->boleto->obtenerSaldo(), 9.75);
+        $this->assertEquals($tarjeta->boleto->obtenerLinea(), 156);
+        $this->assertEquals($tarjeta->boleto->obtenerFecha(),'10/07/2017 10:45');
+    }
 }
