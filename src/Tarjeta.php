@@ -33,7 +33,7 @@ class Tarjeta {
     protected $saldo = 0;
     protected $diaBici = 0;
     protected $viajesRealizados = array ();
-    protected $ultimoBondi = 0;
+    protected $ultimoBondi;
     protected $diaColectivo = 0;
     protected $primeraFecha;
     
@@ -61,7 +61,7 @@ class Tarjeta {
         $this->primeraFecha = strtotime($fecha);
         if($transporte instanceof colectivo) {
             if($this->saldo >= 9.75) {
-                if($this->ultimoBondi == $transporte || $this->ultimoBondi == NULL) {
+                if($this->ultimoBondi == $transporte || is_null($this->ultimoBondi)) {
                         $this->diaColectivo = $this->primeraFecha;
                         $this->saldo=$this->saldo - 9.75;
                         array_unshift(($this->viajesRealizados), new Boleto("normal", 9.75, $transporte->obtenerLinea(), $this->primeraFecha));
