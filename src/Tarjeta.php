@@ -69,7 +69,7 @@ class Tarjeta {
                 else {
                     if($this->ultimoBondi->obtenerLinea() != $transporte->obtenerLinea() && ($fecha-$this->diaColectivo)<3600 ) {
                         $this->saldo = $this->saldo - 3.20;
-                        array_unshift(($this->viajesRealizados), new Boleto("trasbordo", 3.20, $transporte->ObtenerLinea(), $this->primeraFecha));
+                        array_unshift(($this->viajesRealizados), new Boleto("trasbordo", 3.20, $transporte->obtenerLinea(), $this->primeraFecha));
                         $this->ultimoBondi = $transporte;
                     }
                 }
@@ -80,7 +80,7 @@ class Tarjeta {
         }
         else {
             if(($this->primeraFecha-$this->diaBici)<86400) {
-                array_unshift(($this->viajesRealizados), new Boleto("bicicleta", 0.0, $transporte->obtenerPatente, $this->primeraFecha));
+                array_unshift(($this->viajesRealizados), new Boleto("bicicleta", 0.0, $transporte->obtenerPatente(), $this->primeraFecha));
             }
             else {
                 if($this->saldo >= 14.625){
