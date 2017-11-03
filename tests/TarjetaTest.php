@@ -103,4 +103,12 @@ class EstacionTest extends TestCase {
         $tarjeta->abonarViaje($bondi2,'10/07/2017 11:31');
         $this->assertEquals($tarjeta->saldo(), 27.30);        
     }
+    
+    public function testSinSaldo() {
+        $bici = new Bici("654321");
+        $tarjeta = new Tarjeta();
+        
+        $tarjeta->abonarViaje($bici,'10/07/2017 15:45');
+        $this->assertEquals($tarjeta->saldo(), 0);        
+    }
 }
