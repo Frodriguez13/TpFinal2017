@@ -37,6 +37,10 @@ class Tarjeta {
     protected $primeraFecha;
     protected $boleto;
     
+    public function boleto() {
+        return $this->boleto;    
+    }
+    
     public function saldo() {
         return $this->saldo;
     }
