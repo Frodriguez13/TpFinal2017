@@ -67,7 +67,7 @@ class Tarjeta {
                         array_unshift(($this->viajesRealizados), $this->boleto = new Boleto("normal", 9.75, $transporte->obtenerLinea(), $fecha));
                 }
                 else {
-                    if($this->ultimoBondi->obtenerLinea() != $transporte->obtenerLinea() && ($fecha-$this->diaColectivo)<3600 ) {
+                    if($this->ultimoBondi->obtenerLinea() != $transporte->obtenerLinea() && ($this->primeraFecha-$this->diaColectivo)<3600 ) {
                         $this->saldo = $this->saldo - 3.20;
                         array_unshift(($this->viajesRealizados), $this->boleto = new Boleto("trasbordo", 3.20, $transporte->obtenerLinea(), $fecha));
                         $this->ultimoBondi = $transporte;
