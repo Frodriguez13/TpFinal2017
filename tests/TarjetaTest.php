@@ -39,7 +39,7 @@ class EstacionTest extends TestCase {
         //no cobra otro viaje el mismo dia
     }
     
-    public function testUnaBici {
+    public function testUnaBici() {
         $bici = new Bici("654321");
         $tarjeta = new Tarjeta();
         $tarjeta->cargarSaldo(50);
@@ -55,5 +55,15 @@ class EstacionTest extends TestCase {
         
         $tarjeta->abonarViaje($bondi,'10/07/2017 10:45');
         $this->assertEquals($tarjeta->saldo(), 40.25);          
+    }
+    
+    public function test_2_viajes() {
+        $tarjeta = new Tarjeta();
+        $tarjeta->cargarSaldo(50);
+        $bondi = new colectivo(156);
+        
+        $tarjeta->abonarViaje($bondi,'10/07/2017 10:45');
+        $tarjeta->abonarViaje($bondi,'10/07/2017 10:46');
+        $this->assertEquals($tarjeta->saldo(), 30.50); 
     }
 }
