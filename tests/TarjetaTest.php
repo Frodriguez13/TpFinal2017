@@ -84,9 +84,11 @@ class EstacionTest extends TestCase {
         $bondi = new colectivo(156);    
         
         $tarjeta->abonarViaje($bondi,'10/07/2017 10:45');
-        $this->assertEquals($tarjeta->boleto->obtenerBoleto(),"normal");
-        $this->assertEquals($tarjeta->boleto->obtenerSaldo(), 9.75);
-        $this->assertEquals($tarjeta->boleto->obtenerLinea(), 156);
-        $this->assertEquals($tarjeta->boleto->obtenerFecha(),'10/07/2017 10:45');
+        
+        $var = $tarjeta->boleto();
+        $this->assertEquals($var->obtenerBoleto(),"normal");
+        $this->assertEquals($var->obtenerSaldo(), 9.75);
+        $this->assertEquals($var->obtenerLinea(), 156);
+        $this->assertEquals($var->obtenerFecha(),'10/07/2017 10:45');
     }
 }
