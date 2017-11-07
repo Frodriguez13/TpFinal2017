@@ -45,6 +45,10 @@ class Tarjeta {
     public function saldo() {
         return $this->saldo;
     }
+    
+    public function plus() {
+        return $this->plus;
+    }
 
     public function cargarSaldo($carga) {
         if($carga==332) {
