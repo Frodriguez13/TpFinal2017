@@ -36,6 +36,7 @@ class Tarjeta {
     protected $diaColectivo = 0;
     protected $primeraFecha;
     protected $boleto;
+    protected $plus = 0;
     
     public function boleto() {
         return $this->boleto;    
@@ -63,22 +64,37 @@ class Tarjeta {
         $this->primeraFecha = strtotime($fecha);
         if($transporte instanceof colectivo) {
             if($this->saldo >= 9.75) {
-                if($this->ultimoBondi == $transporte || is_null($this->ultimoBondi)) {
+                if($this->plus == 0) {
+                    if($this->ultimoBondi == $transporte || is_null($this->ultimoBondi)) {
                         $this->diaColectivo = $this->primeraFecha;
                         $this->ultimoBondi = $transporte;
                         $this->saldo=$this->saldo - 9.75;
                         array_unshift(($this->viajesRealizados), $this->boleto = new Boleto("normal", 9.75, $transporte->obtenerLinea(), $fecha));
+                    }
+                    else {
+                        if($this->ultimoBondi->obtenerLinea() != $transporte->obtenerLinea() && ($this->primeraFecha-$this->diaColectivo)<3600 ) {
+                            $this->saldo = $this->saldo - 3.20;
+                            array_unshift(($this->viajesRealizados), $this->boleto = new Boleto("trasbordo", 3.20, $transporte->obtenerLinea(), $fecha));
+                            $this->ultimoBondi = $transporte;
+                        }
+                    }
                 }
                 else {
-                    if($this->ultimoBondi->obtenerLinea() != $transporte->obtenerLinea() && ($this->primeraFecha-$this->diaColectivo)<3600 ) {
-                        $this->saldo = $this->saldo - 3.20;
-                        array_unshift(($this->viajesRealizados), $this->boleto = new Boleto("trasbordo", 3.20, $transporte->obtenerLinea(), $fecha));
-                        $this->ultimoBondi = $transporte;
-                    }
+                    $this->diaColectivo = $this->primeraFecha;
+                    $this->ultimoBondi = $transporte;
+                    $this->saldo=$this->saldo - (9.75 + 9.75 * $this->plus);
+                    array_unshift(($this->viajesRealizados), $this->boleto = new Boleto("normal + plus", 9.75 + 9.75 * $this->plus, $transporte->obtenerLinea(), $fecha));
+                    $this->plus = 0;                
                 }
             }
             else {
-                print ("No tiene saldo suficiente");
+                if($this->plus <= 2) {
+                     $this->diaColectivo = $this->primeraFecha;
+                     $this->ultimoBondi = $transporte;
+                     $this->saldo=$this->saldo - 9.75;
+                     array_unshift(($this->viajesRealizados), $this->boleto = new Boleto("plus", 0, $transporte->obtenerLinea(), $fecha));
+                     $this->plus = $this->plus + 1;   
+                }
             }
         }
         else {
